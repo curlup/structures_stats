@@ -21,7 +21,7 @@ class DictKeyCounter(Visitor):
 
     def visit(self, node):
         try:
-            super().visit(node)
+            super(DictKeyCounter, self).visit(node)
         except NotImplementedError:
             pass
 
