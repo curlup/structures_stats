@@ -1,10 +1,6 @@
-import pandas as pd
+from structures_stats import DictKeyCounter, DictValueCollector
 
-from . import DictKeyCounter, DictValueCollector
-
-df = pd.DataFrame({
-    'id': [1, 2], 
-    'nested_structure': [
+nested_structures = [
         {'first_row': 
             {
                 'subtree': [
@@ -27,14 +23,13 @@ df = pd.DataFrame({
                 'subtree_but_object': {'genomic': 'only_one'},
             }
         }
-    ]
-})
+]
+
 
 counter = DictKeyCounter("genomic")
-df.assign(genomic_count=lambda r: counter.count(r.nested_structure))
+
+assert [4,1] == list(map(counter.count, nested_structures))
 
 
 collector = DictValueCollector("genomic")
-df.assign(genomic_types=lambda r: collector.collect(r.nested_structure))
-
-
+assert [['yes', 'also', 'yes', 'out'], ['only_one']] == list(map(collector.collect, nested_structures))
