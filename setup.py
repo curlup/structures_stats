@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name='structures_stats',
-    version='0.1',
+    version='0.1.1',
     description='A collection of collection visitor (pattern) helpers.',
     long_description='A set of classes allowing to traverse/walk abritrary python structures and collect different stats on them.',
     author='Pavel Trukhanov',
