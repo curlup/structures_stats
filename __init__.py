@@ -56,7 +56,7 @@ class DictValueCollector(Visitor):
         except NotImplementedError:
             pass
 
-    def count(self, obj):
+    def collect(self, obj):
         self._collection = []
         self.visit(obj)
         return self._collection
