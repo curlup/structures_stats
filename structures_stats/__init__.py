@@ -52,7 +52,7 @@ class DictValueCollector(Visitor):
 
     def visit(self, node):
         try:
-            super().visit(node)
+            super(DictValueCollector, self).visit(node)
         except NotImplementedError:
             pass
 

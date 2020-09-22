@@ -31,5 +31,7 @@ counter = DictKeyCounter("genomic")
 assert [4,1] == list(map(counter.count, nested_structures))
 
 
+
 collector = DictValueCollector("genomic")
-assert [['yes', 'also', 'yes', 'out'], ['only_one']] == list(map(collector.collect, nested_structures))
+
+assert [['also', 'out', 'yes', 'yes'], ['only_one']] == [list(sorted(collector.collect(e))) for e in nested_structures]
